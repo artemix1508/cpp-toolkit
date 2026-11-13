@@ -21,7 +21,19 @@ int readInt(std::string prompt, int min, int max){
 }
 
 int main(){
-    std::cout << "***** Welcome to cpp-toolkit *****" << std::endl;
-    int ipi = readInt("Pick 1-5: ", 1, 5);
+    std::cout << "Welcome to cpp-toolkit." << std::endl;
+    std::cout << "Options:" << std::endl;
+    std::cout << "[1]. Unit Converter" << std::endl;
+    std::cout << "[6]. Exit" << std::endl;
+    int option;
+    do{
+        option = readInt("Enter a number corresponding to a function you want to use: ", 1, 6);
+        switch(option){
+            case 1:
+                break;
+            case 6:
+                return 0;
+        }
+    }while(option != 6);
     return 0;
 }
