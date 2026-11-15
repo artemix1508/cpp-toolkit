@@ -3,6 +3,7 @@
 #include <limits>
 #include <string>
 #include <ctime>
+#include <cstdlib>
 
 int readInt(std::string prompt, int min, int max){
     int input;
@@ -40,7 +41,6 @@ double readDouble(std::string prompt, double min, double max){
 }
 
 void numberGuessingGame(int diff){
-    srand(time(0));
     int tries;
     int used_tries = 0;
     int random_num;
@@ -124,6 +124,7 @@ double fToC(double F){
 
 
 int main(){
+    srand(time(0));
     int option;
     do{ 
         std::cout << "***** Welcome to cpp-toolkit *****\n";
@@ -142,7 +143,7 @@ int main(){
                     case 1:
                         value_to_convert = readDouble("Enter a value to convert: ", 0, 99999999999);
                         converted_value = kmToMiles(value_to_convert);
-                        std::cout << std::fixed << std::setprecision(2) << value_to_convert << "km is " << converted_value << " in miles.\n";
+                        std::cout << std::fixed << std::setprecision(2) << value_to_convert << " km is " << converted_value << " in miles.\n";
                         break;
                     case 2:
                         value_to_convert = readDouble("Enter a value to convert: ", 0, 99999999999);
