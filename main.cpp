@@ -100,26 +100,26 @@ void numberGuessingGame(int diff){
 }
 
 double kmToMiles(double km) {
-    const double MILE_PER_KM = 0.621371;
-    return km * MILE_PER_KM;
+    const double MILES_PER_KM = 0.621371;
+    return km * MILES_PER_KM;
 }
 double milesToKm(double miles){
-    const double KM_PER_MILE = 0.621371;
-    return miles / KM_PER_MILE;
+    const double KM_PER_MILE = 1.609344;
+    return miles * KM_PER_MILE;
 }
 double kgToLb(double kg){
-    const double KG_PER_LB = 2.20462262185;
-    return kg * KG_PER_LB;
+    const double LB_PER_KG = 2.20462262185;
+    return kg * LB_PER_KG;
 }
 double lbToKg(double lb){
-    const double LB_PER_KG = 2.20462262185;
-    return lb / LB_PER_KG;
+    const double KG_PER_LB = 0.45359237;
+    return lb * KG_PER_LB;
 }
 double cToF(double C){
-    return (C * 9/5) + 32;
+    return (C * 9.0 / 5.0) + 32.0;
 }
 double fToC(double F){
-    return (F - 32) * 5/9;
+    return (F - 32.0) * 5.0 / 9.0;
 }
 
 
