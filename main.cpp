@@ -21,7 +21,7 @@ int readInt(std::string prompt, int min, int max){
         }
     }
 }
-int readDouble(std::string prompt, double min, double max){
+double readDouble(std::string prompt, double min, double max){
     double input;
     while(true){
         std::cout << prompt;
@@ -45,7 +45,7 @@ void numberGuessingGame(int diff){
     int used_tries = 0;
     int random_num;
     int guess = 0;
-    bool won;
+    bool won = false;
     if(diff == 1){
         tries = 20;
         random_num = rand() % 100 + 1;
@@ -92,6 +92,7 @@ void numberGuessingGame(int diff){
         case 1: {
             int difficulty = readInt("Enter the difficulty of the game, it will change the number ranges and the number of tries: ", 1, 3);
             numberGuessingGame(difficulty);
+            break;
         }
         case 2:
             return;
@@ -99,12 +100,12 @@ void numberGuessingGame(int diff){
 }
 
 double kmToMiles(double km) {
-    const double KM_PER_MILE = 0.621371;
-    return km * KM_PER_MILE;
+    const double MILE_PER_KM = 0.621371;
+    return km * MILE_PER_KM;
 }
 double milesToKm(double miles){
-    const double MILE_PER_KM = 0.621371;
-    return miles / MILE_PER_KM;
+    const double KM_PER_MILE = 0.621371;
+    return miles / KM_PER_MILE;
 }
 double kgToLb(double kg){
     const double KG_PER_LB = 2.20462262185;
@@ -146,7 +147,7 @@ int main(){
                     case 2:
                         value_to_convert = readDouble("Enter a value to convert: ", 0, 99999999999);
                         converted_value = milesToKm(value_to_convert);
-                        std::cout << std::fixed << std::setprecision(2) << " miles is " << converted_value << " in km.\n";
+                        std::cout << std::fixed << std::setprecision(2) << value_to_convert << " miles is " << converted_value << " in km.\n";
                         break;
                     case 3:
                         value_to_convert = readDouble("Enter a value to convert: ", 0, 99999999999);
@@ -164,7 +165,7 @@ int main(){
                         std::cout << std::fixed << std::setprecision(2) << value_to_convert << " °C is " << converted_value << " °F.\n";
                         break;
                     case 6:
-                        value_to_convert = readDouble("Enter a value to convert: ", -273.15, 1000);
+                        value_to_convert = readDouble("Enter a value to convert: ", -459.67, 1000);
                         converted_value = fToC(value_to_convert);
                         std::cout << std::fixed << std::setprecision(2) << value_to_convert << " °F is " << converted_value << " °C.\n";
                         break;
