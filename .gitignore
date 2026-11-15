@@ -1,0 +1,4 @@
+git rm --cached toolkit
+echo toolkit > .gitignore
+git add .gitignore
+git commit -m "Stop tracking compiled binary"
