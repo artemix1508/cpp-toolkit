@@ -148,25 +148,32 @@ void stringToolbox(){
     int option;
     while(true){
         std::cout << "***** String Toolbox *****\n";
-        std::cout << "Options:\n[1] Palindrome Checker (ignores case)\n[2] Vowel Counter\n[3] Back\n";
+        std::cout << "Options:\n[1] Palindrome Checker (ignores case)\n[2] Vowel Counter\n[3] Reverse a string\n[4] Back\n";
         option = readInt("> ", 1, 3);
         switch(option){
             case 1: {
                 std::cout << "Enter text that you would like to palindrome check: ";
                 std::string palindromeStr;
-                std::cin >> palindromeStr;
+                std::getline(std::cin, palindromeStr);
                 std::cout << palindromeChecker(palindromeStr) << "\n";
                 break;
             }
             case 2: {
-                std::cout << "Enter text that you would like to count vowels in: ";
                 std::string vowelStr;
-                std::cin >> vowelStr;
+                std::getline(std::cin, vowelStr);
                 std::cout << "There are " << vowelCounter(vowelStr) << " vowels in " << vowelStr << "\n";
                 break;
             }
-            case 3:
+            case 3: {
+                std::string reverseStr;
+                std::cout << "Enter text that you would like to reverse: ";
+                std::getline(std::cin, reverseStr);
+                std::cout << reverseStr << " reversed is " << reverseString(reverseStr);
+                break;
+            }
+            case 4:
                 return;
+                break;
         }
     }
 }
