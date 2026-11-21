@@ -23,6 +23,7 @@ int readInt(std::string prompt, int min, int max){
             std::cout << "Enter an integer in the valid range" << std::endl;
         }
         else{
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return input;
         }
     }
@@ -41,6 +42,7 @@ double readDouble(std::string prompt, double min, double max){
             std::cout << "Enter a double in the valid range" << std::endl;
         }
         else{
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return input;
         }
     }
