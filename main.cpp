@@ -4,6 +4,11 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
+#include <cctype>
+#include <algorithm>
+
+//When I wrote this code, only god an I knew how it worked.
+//Now, only god knows it!
 
 int readInt(std::string prompt, int min, int max){
     int input;
@@ -22,6 +27,7 @@ int readInt(std::string prompt, int min, int max){
         }
     }
 }
+
 double readDouble(std::string prompt, double min, double max){
     double input;
     while(true){
@@ -99,6 +105,72 @@ void numberGuessingGame(int diff){
     }
 }
 
+std::string reverseString(std::string str){
+    std::string result;
+    for(int str_length = str.length(); str_length > 0; str_length--){
+        char current_char = str[str_length - 1];
+        result += current_char;
+    }
+    return result;
+}
+
+
+std::string palindromeChecker(std::string str) {
+    std::transform(str.begin(), str.end(), str.begin(),
+        [](unsigned char c) {
+            return static_cast<char>(std::tolower(c));
+        });
+
+    if (str == reverseString(str)) {
+        return "The text reads the same backwards.";
+    }
+    return "The text doesn't read the same backwards.";
+}
+
+int vowelCounter(std::string str) {
+    int vowels = 0;
+
+    for (char character : str) {
+        char lower = static_cast<char>(
+            std::tolower(static_cast<unsigned char>(character))
+        );
+
+        if (lower == 'a' || lower == 'e' || lower == 'i' ||
+            lower == 'o' || lower == 'u') {
+            vowels++;
+        }
+    }
+
+    return vowels;
+}
+
+void stringToolbox(){
+    int option;
+    while(true){
+        std::cout << "***** String Toolbox *****\n";
+        std::cout << "Options:\n[1] Palindrome Checker (ignores case)\n[2] Vowel Counter\n[3] Back\n";
+        option = readInt("> ", 1, 3);
+        switch(option){
+            case 1: {
+                std::cout << "Enter text that you would like to palindrome check: ";
+                std::string palindromeStr;
+                std::cin >> palindromeStr;
+                std::cout << palindromeChecker(palindromeStr) << "\n";
+                break;
+            }
+            case 2: {
+                std::cout << "Enter text that you would like to count vowels in: ";
+                std::string vowelStr;
+                std::cin >> vowelStr;
+                std::cout << "There are " << vowelCounter(vowelStr) << " vowels in " << vowelStr << "\n";
+                break;
+            }
+            case 3:
+                return;
+        }
+    }
+}
+
 double kmToMiles(double km) {
     const double MILES_PER_KM = 0.621371;
     return km * MILES_PER_KM;
@@ -131,6 +203,7 @@ int main(){
         std::cout << "Options:\n";
         std::cout << "[1]. Unit Converter\n";
         std::cout << "[2]. Number guessing game\n";
+        std::cout << "[3]. String Toolbox\n";
         std::cout << "[6]. Exit\n";
         option = readInt("Enter a number corresponding to a function you want to use: ", 1, 6);
         switch(option){
@@ -177,6 +250,9 @@ int main(){
                 int difficulty = readInt("Enter the difficulty of the game, it will change the number ranges and the number of tries: ", 1, 3);
                 numberGuessingGame(difficulty);
                 break;
+            }
+            case 3: {
+                stringToolbox();
             }
         }
     }while(option != 6);
