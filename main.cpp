@@ -149,7 +149,7 @@ void stringToolbox(){
     while(true){
         std::cout << "***** String Toolbox *****\n";
         std::cout << "Options:\n[1] Palindrome Checker (ignores case)\n[2] Vowel Counter\n[3] Reverse a string\n[4] Back\n";
-        option = readInt("> ", 1, 3);
+        option = readInt("> ", 1, 4);
         switch(option){
             case 1: {
                 std::cout << "Enter text that you would like to palindrome check: ";
