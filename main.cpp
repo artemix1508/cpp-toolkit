@@ -160,6 +160,7 @@ void stringToolbox(){
             }
             case 2: {
                 std::string vowelStr;
+                std::cout << "Enter text that you would like to count vowels in: ";
                 std::getline(std::cin, vowelStr);
                 std::cout << "There are " << vowelCounter(vowelStr) << " vowels in " << vowelStr << "\n";
                 break;
@@ -168,12 +169,11 @@ void stringToolbox(){
                 std::string reverseStr;
                 std::cout << "Enter text that you would like to reverse: ";
                 std::getline(std::cin, reverseStr);
-                std::cout << reverseStr << " reversed is " << reverseString(reverseStr);
+                std::cout << reverseStr << " reversed is " << reverseString(reverseStr) << "\n";
                 break;
             }
             case 4:
                 return;
-                break;
         }
     }
 }
